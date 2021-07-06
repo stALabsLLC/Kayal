@@ -56,7 +56,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         if(queryParams.containsKey("ward_id")) {
 
             Map<String, AttributeValue> key = new HashMap<>();
-            key.put("id", new AttributeValue(queryParams.get("ward_id")));
+            key.put("id", new AttributeValue().withN(queryParams.get("ward_id")));
 
             return key;
 
@@ -72,8 +72,6 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 
         return response;
     }
-
-
 
 
 
