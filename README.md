@@ -1,21 +1,28 @@
 # Kayal
 
-the lambda function getWardData https://github.com/stALabsLLC/Kayal/blob/193bdc1f56aceacb4e126479730eacb055b8c0b3/my-app/src/main/java/com/mycompany/app/App.java returns data from a table in dynamoDB based on the query parameter "ward_id". The function is triggered only if the correct Authorization token is sent. The User recieves the token after sign-in through the callback url. Ive copied the id_token and used it for the authorization header
+the lambda function getWardData **my-app/src/main/java/com/mycompany/app/App.java** returns data from a table in dynamoDB based on the query parameter "ward_id". You can use this function by uploading my-app/target/my-app-1.0-SNAPSHOT.jar to lambda and setting the runtime to Java cornetto 11. **To test in Lambda use the test event**: 
+ 
+ {
+  "queryStringParameters": {
+    "ward_id": 1234
+  }
+}
+
+
+The function is triggered only if the correct Authorization token is sent. The User recieves the token after sign-in through the callback url. Ive copied the id_token and used it for the authorization header.
 
 Using maven to build the project.
 refer my-app/pom.xml for all the dependencies and maven configurations. Make sure the java version used by maven is the same as the Lambda runtime.
 
 
-
-
-input http request format:
+**input http request format:**
 
 GET/resourcename/?query_paramter=1234 
 Host: API gateway invoke url
 Authorization: Bearer id_token issued by cognito
 
 
-input example : http request used in Postman:
+**input example : http request used in Postman:**
 
 GET /test2/ward?ward_id=1234 HTTP/1.1
 Host: tj9zpzpn57.execute-api.ap-south-1.amazonaws.com
