@@ -90,6 +90,11 @@ output without the authorization header:
     "message": "Unauthorized"
 }
 
+output without query paramter:
+
+{
+    "message": "Missing required request parameters: [ward_id]"
+}
 
 
 
